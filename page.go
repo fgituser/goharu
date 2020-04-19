@@ -54,6 +54,15 @@ func (page *Page) SetZoom(zoom float32) {
 	C.HPDF_Page_SetZoom(page.ptr, C.float(zoom))
 }
 
+const PDFA1A string "HPDF_PDFA_1A"
+const PDFA1B string "HPDF_PDFA_1B"
+
+//Set PDF/A-1b conformance
+func (page *Page) SetPDFAConformance(conformace string) {
+	C.HPDF_PDFA_SetPDFAConformance(page.ptr, C.HPDF_PDFAType(conformace))
+}
+
+
 //PageNumStyleDecimal is page numeration style
 const PageNumStyleDecimal int = 0 
 //PageNumStyleUpperRoman is page numeration style
